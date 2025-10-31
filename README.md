@@ -1,30 +1,32 @@
 ## Projet
 
-Dans le cadre d'un possible recrutement, le projet initial se composait d'un système  de reservation de 
-serveur physiques sur demande de ressources
- 
+Dans le cadre d’un processus de recrutement, le projet initial consistait à concevoir un système de réservation de serveurs physiques sur demande de ressources :
+
 * Par un utilisateur
-* Pour un certain nombre de cpu 
-* Pour une quantité de ram 
+* Pour un certain nombre de CPU
+* Et une quantité de RAM
 
-## Réalisations 
+## Réalisations
 
-* Création d'une lib de reservation permettant de gérer la récupération d'infos de la base et la recherch de vm sur critères
-* Création d'une api de test flask, qui utilise la lib et gère des appels rest pour permettre de faire le pont entre un front et les fonctions de la lib
-* Scripts d'initialisations et de destruction de la base 
-* Création d'un frontend de test, permettant de rechercher les vm allouées a un utilisateur et à procéder à une demande 
-* Script shell de validation des endpoints de l'api 
-* Scripts cli de consultation, reservation, resiliation de reservation 
+* Développement d’une librairie de réservation gérant la récupération des informations en base et la recherche de VM selon des critères définis
+* Mise en place d’une API Flask exploitant cette librairie, exposant des endpoints REST pour relier le front et la logique applicative
+* Scripts d’initialisation et de destruction de la base de données
+* Création d’un frontend de test, permettant la recherche de VM et la soumission de demandes de réservation
+* Scripts shell de validation des endpoints de l’API
+* CLI pour la consultation, la réservation et la résiliation de ressources
+
+| Et tout cela, réalisé avant même d’avoir le poste… histoire de prouver que la réflexion et la motivation étaient bien là.
 
 ## Résultat
 
-Je n'ai pas eu le poste, ayant été jugé de communication hésitante (la ou je refléchissais simplement pour donner une bonne réponse).
+Le poste n’a finalement pas été attribué, le retour évoquant une communication jugée “hésitante” — là où je prenais simplement le temps de réfléchir avant de répondre.
 
-Je publie donc ce que j'ai écrit comme preuve de réalisation technique, avec reservation atomique (par requete atomique mariadb). et base fonctionnelle 
-applicative. 
+Je publie donc ici cette réalisation comme preuve de conception et d’exécution technique, illustrant :
 
-Il n'aurait surement resté qu'a gérer des options additionnelles (taille disque minimale, allocations maximales par utilisateur, ...) et faire un front plus 
-"professionnel". 
+* Une gestion atomique des réservations (requêtes atomiques MariaDB)
+* Une base applicative complète et fonctionnelle
+* Des pistes d’amélioration identifiées (options avancées, quotas utilisateurs, interface front plus aboutie, etc.)
 
-Dommage pour moi ... mais aussi pour eux ! 
+| Un projet non retenu, certes — mais pleinement abouti.
+| Dommage pour moi… et peut-être un peu pour eux aussi. 
 
