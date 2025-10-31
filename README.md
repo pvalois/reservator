@@ -15,7 +15,7 @@ Dans le cadre d’un processus de recrutement, le projet initial consistait à c
 * Scripts shell de validation des endpoints de l’API
 * CLI pour la consultation, la réservation et la résiliation de ressources
 
-Et tout cela, réalisé avant même d’avoir le poste… histoire de prouver que la réflexion et la motivation étaient bien là.
+L’ensemble de ces éléments a été développé en amont de toute embauche, uniquement sur la base du cahier des charges évoqué en entretien.
 
 ## Résultat
 
