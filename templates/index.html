@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Recherche de Réservations</title>
+</head>
+<body>
+    <h1>Recherche de Serveurs Alloués</h1>
+    <form method="POST" action="/reservations">
+        <label for="username">Nom d'utilisateur :</label>
+        <input type="text" id="username" name="username" required>
+        <button type="submit">Lister les serveurs</button>
+    </form>
+    <form method="POST" action="/allocations">
+        <label for="username">Nom d'utilisateur :</label>
+        <input type="text" id="username" name="username" required>
+        <label for="cpu">Nombre de coeurs :</label>
+        <input type="text" id="cpu" name="cpu" required>
+        <label for="ram">Mémoire en Go :</label>
+        <input type="text" id="ram" name="ram" required>
+        <button type="submit">Reserver un serveur</button>
+    </form>
+</body>
+</html>

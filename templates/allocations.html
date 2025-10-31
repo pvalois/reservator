@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <p><a href="/">Retour au formulaire</a></p>
+
+    {% if error %}
+        <h2>⚠️ Erreur</h2>
+        <p style="color: red;">{{ error }}</p>
+    {% else %}
+        <h1>Allocation d'un nouveau serveur pour "{{ username }}"</h1>
+        {% if reservations %}
+        {% endif %}
+    {% endif %}
+</body>
+</html>
