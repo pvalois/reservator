@@ -15,7 +15,7 @@ Dans le cadre d’un processus de recrutement, le projet initial consistait à c
 * Scripts shell de validation des endpoints de l’API
 * CLI pour la consultation, la réservation et la résiliation de ressources
 
-| Et tout cela, réalisé avant même d’avoir le poste… histoire de prouver que la réflexion et la motivation étaient bien là.
+Et tout cela, réalisé avant même d’avoir le poste… histoire de prouver que la réflexion et la motivation étaient bien là.
 
 ## Résultat
 
@@ -27,6 +27,5 @@ Je publie donc ici cette réalisation comme preuve de conception et d’exécuti
 * Une base applicative complète et fonctionnelle
 * Des pistes d’amélioration identifiées (options avancées, quotas utilisateurs, interface front plus aboutie, etc.)
 
-| Un projet non retenu, certes — mais pleinement abouti.
-| Dommage pour moi… et peut-être un peu pour eux aussi. 
+Un projet non retenu, certes — mais pleinement abouti. Dommage pour moi… et peut-être un peu pour eux aussi. 
 
