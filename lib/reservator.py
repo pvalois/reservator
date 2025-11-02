@@ -37,18 +37,11 @@ class xen_reservator:
         for s in servers:
             yield(s[0],s[1], s[2], s[3])
 
-    def get_users(self):
-        self.cursor.execute("SELECT uid FROM users ORDER BY uid;")
-        users = self.cursor.fetchall()
-        for u in users:
-            yield(u[0])
-
     def get_reservations(self):
         query="""
-              SELECT r.id, s.nom, u.uid, r.reservation_time
+              SELECT r.id, s.nom, r.iduser, r.reservation_time
               FROM reservations r
               JOIN servers s ON r.idserveur = s.id
-              JOIN users u ON r.iduser = u.uid
               ORDER BY r.id;
               """
         self.cursor.execute(query)

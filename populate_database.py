@@ -22,12 +22,6 @@ conn = pymysql.connect(
 )
 cur = conn.cursor()
 
-# --- 3 utilisateurs ---
-users = ['alice', 'bob', 'charlie']
-
-for uid in users:
-    cur.execute("INSERT IGNORE INTO users (uid) VALUES (%s);", (uid,))
-
 # --- 10 serveurs ---
 servers = [
     ("serv001", 32, 32),

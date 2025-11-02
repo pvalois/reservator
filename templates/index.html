@@ -2,23 +2,54 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Recherche de Réservations</title>
+    <title>Résultats pour {{ username }}</title>
 </head>
 <body>
-    <h1>Recherche de Serveurs Alloués</h1>
-    <form method="POST" action="/reservations">
-        <label for="username">Nom d'utilisateur :</label>
-        <input type="text" id="username" name="username" required>
-        <button type="submit">Lister les serveurs</button>
-    </form>
+    <p><a href="/logout">Se deconnecter</a></p>
+
+
+    {% if error %}
+        <h2>⚠️ Erreur</h2>
+        <p style="color: red;">{{ error }}</p>
+    {% else %}
+        <h1>Serveurs alloués à "{{ username }}"</h1>
+        
+        {% if reservations %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nom du Serveur</th>
+                        <th>ID de Réservation</th>
+                        <th>Date de Réservation</th>
+                        </tr>
+                </thead>
+                <tbody>
+                    {% for res in reservations %}
+                    <tr>
+                        <td><strong>{{ res.servername }}</strong></td>
+                        <td>{{ res.reservation_id }} <a href="/liberation?servername={{ res.servername }}">X</a></td>
+                        <td>{{ res.date|default('N/A') }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Aucun serveur trouvé alloué à cet utilisateur, ou cet utilisateur n'existe pas.</p>
+        {% endif %}
+    {% endif %}
+
+    <h1>Demande de serveur</h1>
     <form method="POST" action="/allocations">
-        <label for="username">Nom d'utilisateur :</label>
-        <input type="text" id="username" name="username" required>
         <label for="cpu">Nombre de coeurs :</label>
         <input type="text" id="cpu" name="cpu" required>
         <label for="ram">Mémoire en Go :</label>
         <input type="text" id="ram" name="ram" required>
         <button type="submit">Reserver un serveur</button>
     </form>
+
+    {% if error %}
+        <h2>⚠️ Erreur</h2>
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
 </body>
 </html>

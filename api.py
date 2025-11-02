@@ -38,14 +38,6 @@ def servers_list():
 
     return jsonify(response_data)
 
-@app.route('/api/v1/users', methods=['GET'])
-def users_list():
-    """Récupère la liste des utilisateurs enregistrés."""
-    return jsonify({
-        "status": "success",
-        "users": list(reservator.get_users())
-    })
-
 @app.route('/api/v1/reservations', methods=['GET'])
 def reservations_list():
     """Récupère la liste des réservations en cours."""
@@ -101,7 +93,7 @@ def allocate_server():
         return jsonify({
             "status": "fail",
             "message": "Aucun serveur éligible trouvé ou les ressources sont insuffisantes."
-        }), 404
+        }), 200
 
 @app.route('/api/v1/release/id/<int:reservation_id>', methods=['DELETE'])
 def release_by_reservation_id(reservation_id: int):
@@ -109,7 +101,7 @@ def release_by_reservation_id(reservation_id: int):
     if reservator.release_by_id(reservation_id):
         return jsonify({"status": "success", "message": f"Réservation ID {reservation_id} libérée."})
     else:
-        return jsonify({"status": "fail", "message": f"Réservation ID {reservation_id} non trouvée ou échec de libération."}), 404
+        return jsonify({"status": "fail", "message": f"Réservation ID {reservation_id} non trouvée ou échec de libération."}), 200
 
 @app.route('/api/v1/release/server/<string:username>/<string:servername>', methods=['DELETE'])
 def release_by_user_and_server(username: str, servername: str):
@@ -117,9 +109,9 @@ def release_by_user_and_server(username: str, servername: str):
     if reservator.release_server(username, servername):
         return jsonify({"status": "success", "message": f"Serveur '{servername}' libéré pour l'utilisateur '{username}'."})
     else:
-        return jsonify({"status": "fail", "message": f"Aucune réservation correspondante trouvée pour {username} sur {servername}."}), 404
+        return jsonify({"status": "fail", "message": f"Aucune réservation correspondante trouvée pour {username} sur {servername}."}), 200
 
 if __name__ == '__main__':
     # Utilisez 'debug=True' pour le développement (à désactiver en production)
-    app.run(debug=True, port=5000)
+    app.run(debug=True, host="0.0.0.0", port=5000)
     reservator.close()

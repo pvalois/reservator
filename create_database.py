@@ -57,13 +57,6 @@ CREATE TABLE IF NOT EXISTS servers (
 ) ENGINE=InnoDB;
 """)
 
-# Table users
-cur.execute("""
-CREATE TABLE IF NOT EXISTS users (
-    uid VARCHAR(100) PRIMARY KEY
-) ENGINE=InnoDB;
-""")
-
 # Table reservations
 cur.execute("""
 CREATE TABLE IF NOT EXISTS reservations (
@@ -72,12 +65,13 @@ CREATE TABLE IF NOT EXISTS reservations (
     iduser VARCHAR(100) NOT NULL,
     reservation_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (idserveur) REFERENCES servers(id) ON DELETE CASCADE,
-    FOREIGN KEY (iduser) REFERENCES users(uid) ON DELETE CASCADE,
     UNIQUE KEY unique_reservation (idserveur)
 ) ENGINE=InnoDB;
 """)
 
-print("✅ Tables servers, users et reservations créées avec succès !")
+print("Nombre de lignes affectées :", cur.rowcount)
+
+print("✅ Tables servers, et reservations créées avec succès !")
 
 cur.close()
 conn.close()
