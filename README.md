@@ -29,3 +29,17 @@ Je publie donc ici cette réalisation comme preuve de conception et d’exécuti
 
 Un projet non retenu, certes — mais pleinement abouti. Dommage pour moi… et peut-être un peu pour eux aussi. 
 
+## Ce qu'il aurait resté à mettre
+
+* Un haproxy en front pour gerer le ssl
+* Un script qui va lire les reservations et les transformer en config pxe (par templating)
+* Un peu d'esthetique a coup de CSS 
+
+```
+[Utilisateur] -> [Frontend/CLI] -> [API Flask] -> [MariaDB]
+                                                     |
+                                            [Sync Worker (Cron)]
+                                                     |
+                                            [TFTP /pxelinux.cfg/]
+```
+
